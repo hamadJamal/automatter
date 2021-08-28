@@ -1,25 +1,31 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
-  "icons": [
-    {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
-    },
-    {
-      "src": "logo192.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "logo512.png",
-      "type": "image/png",
-      "sizes": "512x512"
-    }
-  ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "manifest_version": 2,
+  "name": "Automatter",
+  "version": "0.0.1",
+  "content_scripts": [{ "js": ["content.js"], "matches": ["<all_urls>"], "run_at": "document_idle"  }],
+  "background": {
+  "scripts": [
+  "background.js"
+  ]
+  },
+
+  
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "https://lums.lightning.force.com/*",
+    "https://www.linkedin.com/*",
+    "http://127.0.0.1:5500/contact-form-16/",
+    "https://www.google.com/*",
+    "https://app.hubspot.com/*",
+    "storage",
+    "https://medium.com/@hnobi/using-modal-as-chrome-extension-popup-page-ec8fc9a3c6a6",
+    "https://lums.my.salesforce.com/",
+    "http://localhost/*"
+    
+],
+  "web_accessible_resources": ["*.html"],
+  "content_security_policy": "script-src 'self' 'sha256-LLuIJ9IZZnkyPsW3pbQljDbqHG6CN5Yh9ILy1cnCLg4='; object-src 'self'",
+  "browser_action": {
 }
+  }
