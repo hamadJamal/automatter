@@ -1,0 +1,31 @@
+{
+  "manifest_version": 2,
+  "name": "Automatter",
+  "version": "0.0.1",
+  "content_scripts": [{ "js": ["content.js"], "matches": ["<all_urls>"], "run_at": "document_idle"  }],
+  "background": {
+  "scripts": [
+  "background.js"
+  ]
+  },
+
+  
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "https://lums.lightning.force.com/*",
+    "https://www.linkedin.com/*",
+    "http://127.0.0.1:5500/contact-form-16/",
+    "https://www.google.com/*",
+    "https://app.hubspot.com/*",
+    "storage",
+    "https://medium.com/@hnobi/using-modal-as-chrome-extension-popup-page-ec8fc9a3c6a6",
+    "https://lums.my.salesforce.com/",
+    "http://localhost/*"
+    
+],
+  "web_accessible_resources": ["*.html"],
+  "content_security_policy": "script-src 'self' 'sha256-pUQAzA/WTpwuiDYfhQ6R2LYBOCzNzjhKhracFHbBoFA='; object-src 'self'",
+  "browser_action": {
+}
+  }
