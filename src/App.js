@@ -211,10 +211,9 @@ function App() {
     return <div id = "item">{FINAL_TEXT}</div>;
 }
 
-let btn_class = blueButton ? "BlueButton" : "WhiteButton";
 function handleSave(){
   setBlueButton(true)
-
+  setShowPlayButton(false)
 }
   return (
 
@@ -243,7 +242,7 @@ function handleSave(){
             outline: "none",
             borderRadius: "4px",
             width: 60,
-            marginTop: 20
+            marginBottom: 2
           }}
         >
           <PlayPause buttonToShow={showPlayButton ? "play" : "pause"} />
@@ -256,7 +255,7 @@ function handleSave(){
   style={{
     border: "none",
     
-    backgroundColor: blueButton? "Green": "Light Grey",
+    backgroundColor: "White",
     padding: 0,
 
     boxShadow: "0 0 2px 2px rgba(0,0,0,.2)" ,
@@ -273,23 +272,32 @@ function handleSave(){
         >
           {
             !blueButton?
-<svg height="20" width="30">
-  <circle cx="15" cy="10" r="8" fill="red" />
-</svg>
-:
-<p
+            <p
+
+                  style = {{
+                    fontFamily: "sans-serif",
+                    fontSize: 15,
+                    color: "red",
+                    opacity: 1,
+                    fontWeight: "Bold",
+                    
+                  }}
+
+            >STOP</p>
+            :
+            <p
 
 style = {{
   fontFamily: "sans-serif",
   fontSize: 15,
-  color: "White",
-  opacity: 0.99,
+  color: "Green",
+  opacity: 1,
   fontWeight: "Bold",
   
 }}
 
 >SAVED</p>
-}
+          }
       
         </button>
        
