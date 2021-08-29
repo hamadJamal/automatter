@@ -1,6 +1,6 @@
     /*global chrome*/
 
-import { useState, Text, useEffect, } from "react";
+import { useState, Text, useEffect } from "react";
 import "./App.css"
 import ReactDOM from "react-dom";
 import React from "react";
@@ -10,6 +10,10 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import PlayPause from "./components/PlayPause";
+import { AiFillEdit } from "react-icons/ai";
+import { IconContext } from "react-icons";
+
+
 
 const ws = new WebSocket("ws://localhost:8082")
 
@@ -304,7 +308,29 @@ style = {{
   </p>
 </div>
 
+<div id= "SequenceNamediv">
+  <input
+  id = "SequenceNameInput"
+  type= "text"
+  placeholder= "Untitled Sequence 001"
+  ></input> 
 
+
+  <IconContext.Provider value={{ 
+    color: "Light grey",
+    size : "25px",
+    style : {
+      marginLeft: 20,
+      marginBottom: -9
+    }
+
+
+    
+  }}>
+  <AiFillEdit
+  onClick= {()=> document.getElementById("SequenceNameInput").focus()}/>
+  </IconContext.Provider>
+  </div>
   
   <ul>
                 {
