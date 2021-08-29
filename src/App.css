@@ -1,9 +1,22 @@
 #item {
   white-space: pre-wrap;
 }
-#Button1 {
+#Buttons {
   /* font-family: sans-serif; */
   flex-direction: row;
   text-align: center;
 
 }
+#Directions {
+
+  text-align: center;
+
+}
+#para {
+    font-family: "Sans-serif";
+    line-height: 1.8;
+    font-style: italic;
+    font-weight: 400;
+    font-size: large;
+}
+    

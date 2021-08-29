@@ -87,15 +87,15 @@ function App() {
   const [SupportedDataTypes,setSupportedDataTypes] = useState({})
 
   const [clickStream, setClickStream] = useState([
-    "Tagname - INPUT"+"\n"+
-   "lightning-input_input -"+"\n"+
-    "type - text"+"\n"+
-    "id - input-233"+"\n"+
-   "aria-invalid - false"+"\n"+
-    "maxlength - 40"+"\n"+
-   "placeholder - First Name"+"\n"+
-    "name - firstName"+"\n"+
-    "class - slds-input"+"\n",
+  //   "Tagname - INPUT"+"\n"+
+  //  "lightning-input_input -"+"\n"+
+  //   "type - text"+"\n"+
+  //   "id - input-233"+"\n"+
+  //  "aria-invalid - false"+"\n"+
+  //   "maxlength - 40"+"\n"+
+  //  "placeholder - First Name"+"\n"+
+  //   "name - firstName"+"\n"+
+  //   "class - slds-input"+"\n",
 
 // "Tagname - INPUT"+"\n"+
 // "lightning-input_input -"+"\n"+
@@ -227,7 +227,7 @@ function handleSave(){
   <br></br>
   <br></br> */}
 
-<div id = "Button1">
+<div id = "Buttons">
   <button
           onClick={() => setShowPlayButton(!showPlayButton) }
           style={{
@@ -252,7 +252,7 @@ function handleSave(){
   style={{
     border: "none",
     
-    backgroundColor: blueButton? "Green": "White",
+    backgroundColor: blueButton? "Green": "Light Grey",
     padding: 0,
 
     boxShadow: "0 0 2px 2px rgba(0,0,0,.2)" ,
@@ -291,6 +291,18 @@ style = {{
        
   </div>
 
+<div id= "Directions">
+  <p
+
+  id = "para">Press play to start recording. Then click on UI controls. <br/>  
+  Then select data types to be enetred in those fields. You <br/>
+  can also record any types of buttons or link clicks. 
+
+
+
+
+  </p>
+</div>
 
 
   
