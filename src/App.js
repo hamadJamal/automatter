@@ -14,10 +14,19 @@ import { AiFillEdit } from "react-icons/ai";
 import { IconContext } from "react-icons";
 
 
+import styled from 'styled-components';
 
 const ws = new WebSocket("ws://localhost:8082")
+const StyledContainer = styled.div`
+  max-width: 450px;
+  width: 100%;
+  margin: auto;
+  border: none;
+  background-color: white;
+  box-shadow: rgb(0 0 0 / 20%) 0px 0px 2px 2px;
+  border-radius: 4px;
 
-
+`
 
 
 const useStyles = makeStyles((theme) => ({
@@ -87,7 +96,6 @@ const ControlledOpenSelect = ({Dictionary,SelectedUIControl, Setter, options}) =
   
 function App() {
 
-
   const [SupportedDataTypes,setSupportedDataTypes] = useState({})
 
   const [clickStream, setClickStream] = useState([
@@ -140,7 +148,6 @@ function App() {
 
 })
     },[])
-
 
   // chrome.runtime.onMessage.addListener((request, sender,sendResponse)=>{
     
@@ -326,7 +333,7 @@ style = {{
 
   <IconContext.Provider value={{ 
     color: "Light grey",
-    size : "25px",
+    size : "20px",
     style : {
       marginLeft: 20,
       marginBottom: -9
@@ -339,9 +346,9 @@ style = {{
   onClick= {()=> document.getElementById("SequenceNameInput").focus()}/>
   </IconContext.Provider>
   </div>
-  
   <ul>
-                {
+
+                {/* {
                 clickStream.map(function(name, index){
                     return <div key={ index }>
                       <RenderItem text = {name}/>
@@ -352,16 +359,22 @@ style = {{
                     <br></br>
 
                     </div>;
-                  })}
-  </ul>
+                  })} */}
+</ul>
+
+<StyledContainer>
+  <p>Hello</p>
+
+</StyledContainer>
 
 
-{
+
+{/* {
 showSaveButton?
   <button id = "Save" onClick={SaveTheSequenceAndMapping}>Save</button>  
 :
 <div></div>
-}
+} */}
 
   </div>
 </>
