@@ -235,10 +235,10 @@ function handleSave(){
             backgroundColor:"White" ,
             boxShadow: "0 0 2px 2px rgba(0,0,0,.2)",
             cursor: "pointer",
-            height: 40,
+            height: 42,
             outline: "none",
-            borderRadius: "10px",
-            width: 90,
+            borderRadius: "4px",
+            width: 60,
             marginTop: 20
           }}
         >
@@ -257,10 +257,10 @@ function handleSave(){
 
     boxShadow: "0 0 2px 2px rgba(0,0,0,.2)" ,
     cursor: "pointer",
-    height: 40,
+    height: 43,
     outline: "none",
-    borderRadius: "10px",
-    width: 90,
+    borderRadius: "4px",
+    width: 60,
     marginLeft: 20,
     marginTop: 20,
   
@@ -290,6 +290,7 @@ style = {{
         </button>
        
   </div>
+
 
 
   
