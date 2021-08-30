@@ -27,6 +27,10 @@ const StyledContainer = styled.div`
   border-radius: 4px;
 
 `
+const ScrollView = styled.div`
+height: '500px';
+overflowY: 'scroll'
+`
 
 
 const useStyles = makeStyles((theme) => ({
@@ -99,25 +103,37 @@ function App() {
   const [SupportedDataTypes,setSupportedDataTypes] = useState({})
 
   const [clickStream, setClickStream] = useState([
-  //   "Tagname - INPUT"+"\n"+
-  //  "lightning-input_input -"+"\n"+
-  //   "type - text"+"\n"+
-  //   "id - input-233"+"\n"+
-  //  "aria-invalid - false"+"\n"+
-  //   "maxlength - 40"+"\n"+
-  //  "placeholder - First Name"+"\n"+
-  //   "name - firstName"+"\n"+
-  //   "class - slds-input"+"\n",
+    "Tagname - INPUT"+"\n"+
+   "lightning-input_input -"+"\n"+
+    "type - text"+"\n"+
+    "id - input-233"+"\n"+
+   "aria-invalid - false"+"\n"+
+    "maxlength - 40"+"\n"+
+   "placeholder - First Name"+"\n"+
+    "name - firstName"+"\n"+
+    "class - slds-input"+"\n",
 
-// "Tagname - INPUT"+"\n"+
-// "lightning-input_input -"+"\n"+
-// "type - text"+"\n"+
-// "id - input-236"+"\n"+
-// "aria-invalid - false"+"\n"+
-// "maxlength - 40"+"\n"+
-// "placeholder - Suffix"+"\n"+
-// "name - suffix"+"\n"+
-// "class - slds-input"+"\n"
+    "class - slds-input"+"\n",
+
+    "class - slds-input"+"\n",
+
+    "class - slds-input"+"\n",
+
+    "class - slds-input"+"\n",
+
+    "class - slds-input"+"\n",
+
+    "class - slds-input"+"\n",
+
+"Tagname - INPUT"+"\n"+
+"lightning-input_input -"+"\n"+
+"type - text"+"\n"+
+"id - input-236"+"\n"+
+"aria-invalid - false"+"\n"+
+"maxlength - 40"+"\n"+
+"placeholder - Suffix"+"\n"+
+"name - suffix"+"\n"+
+"class - slds-input"+"\n"
 
 
 
@@ -346,27 +362,29 @@ style = {{
   onClick= {()=> document.getElementById("SequenceNameInput").focus()}/>
   </IconContext.Provider>
   </div>
-  <ul>
+<br/>
+<ScrollView>
+<ul >
 
-                {/* {
-                clickStream.map(function(name, index){
-                    return <div key={ index }>
-                      <RenderItem text = {name}/>
-                    <br></br>
+              {
+              clickStream.map(function(name, index){
+                  return <div>
+                  
+                  <StyledContainer key={ index }>
+                    <RenderItem text = {name}/>
 
-                    <ControlledOpenSelect Dictionary = {SequenceAndMapping} SelectedUIControl = {name} Setter = {setSequenceAndMapping} options = {SupportedDataTypes}/>
-                    <hr></hr>
-                    <br></br>
+                  <ControlledOpenSelect Dictionary = {SequenceAndMapping} SelectedUIControl = {name} Setter = {setSequenceAndMapping} options = {SupportedDataTypes}/>
 
-                    </div>;
-                  })} */}
+                  </StyledContainer>
+                  <br />
+
+
+                  </div>
+                })}
+                
 </ul>
 
-<StyledContainer>
-  <p>Hello</p>
-
-</StyledContainer>
-
+</ScrollView>
 
 
 {/* {
