@@ -13,7 +13,7 @@ var listener = function handleClick(event){
 
   let ClickedElement = ""
 
-  ClickedElement = ClickedElement+ "Tagname" + " - " + element.tagName + "\n"
+  ClickedElement = ClickedElement+ "Type" + " - " + element.tagName + "\n"
   for (var att, i = 0, atts = element.attributes, n = atts.length; i < n; i++){
       att = atts[i];
       ClickedElement = ClickedElement + att.nodeName + " - " + att.nodeValue + "\n"

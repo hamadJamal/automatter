@@ -10,7 +10,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import PlayPause from "./components/PlayPause";
-import { AiFillEdit } from "react-icons/ai";
+import { MdModeEdit } from "react-icons/md";
 import { IconContext } from "react-icons";
 
 
@@ -26,10 +26,6 @@ const StyledContainer = styled.div`
   box-shadow: rgb(0 0 0 / 20%) 0px 0px 2px 2px;
   border-radius: 4px;
 
-`
-const ScrollView = styled.div`
-height: '500px';
-overflowY: 'scroll'
 `
 
 
@@ -103,7 +99,7 @@ function App() {
   const [SupportedDataTypes,setSupportedDataTypes] = useState({})
 
   const [clickStream, setClickStream] = useState([
-    "Tagname - INPUT"+"\n"+
+    "Type - INPUT"+"\n"+
    "lightning-input_input -"+"\n"+
     "type - text"+"\n"+
     "id - input-233"+"\n"+
@@ -138,7 +134,7 @@ function App() {
 
 
   ]);
-  const allowedAttributes = ["Tagname","type","id","name","class","title","placeholder", "cols", "rows", "role", "maxlength", "href", "data-aura-rendered-by", "focusable"]
+  const allowedAttributes = ["Type","id","name","title","class", "cols", "rows", "role","focusable"]
 
 
   const [pauseResume, setPauseResume] = useState("Pause");
@@ -223,7 +219,7 @@ function App() {
     eachLine.forEach(element => {
 
       var attribute = element.split("-")[0]
-      // console.log(attribute)
+      console.log(attribute)
       if(allowedAttributes.includes(attribute.replace(/ /g, ""))){
         FINAL_TEXT = FINAL_TEXT+element+"\n"
 
@@ -325,7 +321,9 @@ style = {{
         </button>
        
   </div>
-
+<br/>
+<br/>
+<br/>
 <div id= "Directions">
   <p
 
@@ -351,19 +349,18 @@ style = {{
     color: "Light grey",
     size : "20px",
     style : {
-      marginLeft: 20,
-      marginBottom: -9
+      marginLeft: 15,
+      marginBottom: -6
     }
 
 
     
   }}>
-  <AiFillEdit
+  <MdModeEdit
   onClick= {()=> document.getElementById("SequenceNameInput").focus()}/>
   </IconContext.Provider>
   </div>
 <br/>
-<ScrollView>
 <ul >
 
               {
@@ -384,7 +381,6 @@ style = {{
                 
 </ul>
 
-</ScrollView>
 
 
 {/* {

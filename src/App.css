@@ -4,7 +4,15 @@
 #Buttons {
   /* font-family: sans-serif; */
   flex-direction: row;
+  /* background-color: #c0c0c0; */
   text-align: center;
+
+  overflow: hidden;
+  background-color: #fff;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+  z-index: 10;
 
 }
 #Directions {
@@ -43,5 +51,6 @@ input[type=text] {
 
   
 }
+ 
 
 
