@@ -11,6 +11,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import PlayPause from "./components/PlayPause";
 import { MdModeEdit } from "react-icons/md";
+import { FaMinusCircle,FaPlusCircle } from "react-icons/fa";
 import { IconContext } from "react-icons";
 
 
@@ -20,7 +21,6 @@ const ws = new WebSocket("ws://localhost:8082")
 const StyledContainer = styled.div`
   max-width: 450px;
   width: 60%;
-  // height: 230px;
   margin: auto;
   border: none;
   background-color: white;
@@ -45,6 +45,7 @@ const ControlledOpenSelect = ({Dictionary,SelectedUIControl, Setter, options}) =
   const classes = useStyles();
   const [age, setAge] = React.useState('');
   const [open, setOpen] = React.useState(false);
+  const [showPlusIcon, setshowPlusIcon] = React.useState(true)
   
   const handleChange = (event) => {
 
@@ -60,11 +61,16 @@ const ControlledOpenSelect = ({Dictionary,SelectedUIControl, Setter, options}) =
   };
 
   const handleClose = () => {
+    setshowPlusIcon(true)
     setOpen(false);
 
   };
 
   const handleOpen = () => {
+    setTimeout(() => {
+      setshowPlusIcon(false)
+      
+    }, 200); 
     setOpen(true);
   };
 
@@ -72,10 +78,10 @@ const ControlledOpenSelect = ({Dictionary,SelectedUIControl, Setter, options}) =
     <div style= {{
       padding: "18px"
     }}>
-      <FormControl className={classes.formControl}>
+      <FormControl className={classes.formControl} >
         <Select
           labelId="demo-controlled-open-select-label"
-          id="demo-controlled-open-select"
+          id="MenuOfDropBox"
           open={open}
           onClose={handleClose}
           onOpen={handleOpen}
@@ -83,15 +89,37 @@ const ControlledOpenSelect = ({Dictionary,SelectedUIControl, Setter, options}) =
           onChange={handleChange}
         >
           
-          <MenuItem value="">
-            <em>None</em>
+          <MenuItem id="MenuOfDropBox" value="">
+            None
           </MenuItem>
           {Object.values(options).map((item,index) => (
 
-          <MenuItem key={ index } value={item}>{item}</MenuItem>
+          <MenuItem id="MenuOfDropBox" key={ index } value={item}>{item}</MenuItem>
 
           ))}
+                      <hr />
+
+         <MenuItem id="MenuOfDropBox" value="New"
+         onClick = {()=>setshowPlusIcon(true)}
+         >
+           <IconContext.Provider
+            value={{ 
+              color: "black",
+              size : "20px",
+              style : {
+                float: "right",
+                marginTop: "3px",
+                marginRight: "10px",
+                visibility: showPlusIcon? "hidden" : "visible"
+              }
+            }}>
+           <FaPlusCircle/>
+           </IconContext.Provider>
+
+            Create New
+          </MenuItem>
         </Select>
+        
       </FormControl>
     </div>
   );
@@ -110,19 +138,19 @@ function App() {
     "maxlength - 40"+"\n"+
    "placeholder - First Name"+"\n"+
     "name - firstName"+"\n"+
-    "class - slds-input"+"\n",
+    "class - slds-input1"+"\n",
 
-    "class - slds-input"+"\n",
+    "class - slds-input2"+"\n",
 
-    "class - slds-input"+"\n",
+    "class - slds-input3"+"\n",
 
-    "class - slds-input"+"\n",
+    "class - slds-input4"+"\n",
 
-    "class - slds-input"+"\n",
+    "class - slds-input5"+"\n",
 
-    "class - slds-input"+"\n",
+    "class - slds-input6"+"\n",
 
-    "class - slds-input"+"\n",
+    "class - slds-input6"+"\n",
 
 "Tagname - INPUT"+"\n"+
 "lightning-input_input -"+"\n"+
@@ -238,6 +266,12 @@ function App() {
 function handleSave(){
   setBlueButton(true)
   setShowPlayButton(false)
+}
+function handleRemovalClickEvent (name){
+  const newList = clickStream.filter((item) => item !== name);
+  setClickStream(newList)
+
+console.log(name)
 }
   return (
 
@@ -369,19 +403,24 @@ style = {{
 <ul >
 
               {
-              clickStream.map(function(name, index){
-                  return <div>
-                  
-                  <StyledContainer key={ index }>
-                    <RenderItem text = {name}/>
+              clickStream.reverse().map(function(name, index){
+                  return <StyledContainer key={ index }>
+                  <IconContext.Provider value={{ 
+                      color: "red",
+                      size : "20px",
+                      style : {
+                        float: "right",
+                        marginTop: "10px",
+                        marginRight: "10px"
+                      }
+                    }}>
+                  <FaMinusCircle onClick= {()=>handleRemovalClickEvent(name)}/>
+                  </IconContext.Provider>
+                  <RenderItem text = {name}/>
 
                   <ControlledOpenSelect Dictionary = {SequenceAndMapping} SelectedUIControl = {name} Setter = {setSequenceAndMapping} options = {SupportedDataTypes}/>
 
                   </StyledContainer>
-                  <br />
-
-
-                  </div>
                 })}
                 
 </ul>
@@ -398,7 +437,7 @@ showSaveButton?
   </div>
 </>
 
-      );
+);
 }
 
 export default App;
