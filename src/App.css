@@ -1,5 +1,12 @@
 #item {
   white-space: pre-wrap;
+  padding: 18px;
+  font-size: medium;
+  font-family: cursive;
+}
+#DropboxMain {
+  padding: 18px;
+
 }
 #Buttons {
   /* font-family: sans-serif; */

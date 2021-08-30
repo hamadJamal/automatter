@@ -19,7 +19,8 @@ import styled from 'styled-components';
 const ws = new WebSocket("ws://localhost:8082")
 const StyledContainer = styled.div`
   max-width: 450px;
-  width: 100%;
+  width: 60%;
+  // height: 230px;
   margin: auto;
   border: none;
   background-color: white;
@@ -68,7 +69,9 @@ const ControlledOpenSelect = ({Dictionary,SelectedUIControl, Setter, options}) =
   };
 
   return (
-    <div>
+    <div style= {{
+      padding: "18px"
+    }}>
       <FormControl className={classes.formControl}>
         <Select
           labelId="demo-controlled-open-select-label"
@@ -219,15 +222,17 @@ function App() {
     eachLine.forEach(element => {
 
       var attribute = element.split("-")[0]
-      console.log(attribute)
       if(allowedAttributes.includes(attribute.replace(/ /g, ""))){
         FINAL_TEXT = FINAL_TEXT+element+"\n"
-
       }
       
     });
 
-    return <div id = "item">{FINAL_TEXT}</div>;
+
+    return <p id = "item">
+      {FINAL_TEXT}
+      
+      </p>;
 }
 
 function handleSave(){
